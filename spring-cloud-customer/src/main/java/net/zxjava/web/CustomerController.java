@@ -4,16 +4,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+
+import net.zxjava.api.User;
+import net.zxjava.service.CustomerService;
 
 @RestController
 public class CustomerController {
 
 	@Autowired
-	private RestTemplate restTemplate;
+	private CustomerService customerService;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
-		return restTemplate.getForEntity("http://SPRINT-CLOUD-SERVICE/hello", String.class).getBody();
+		return customerService.hello();
+	}
+
+	@RequestMapping(value = "/index2", method = RequestMethod.GET)
+	public String index2() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(customerService.hello()).append("\n");
+		sb.append(customerService.user("John")).append("\n");
+		sb.append(customerService.getUser(1234)).append("\n");
+		User user = new User();
+		user.setAge(1);
+		user.setName("Tom");
+		sb.append(customerService.createUser(user)).append("\n");
+		return sb.toString();
 	}
 }
