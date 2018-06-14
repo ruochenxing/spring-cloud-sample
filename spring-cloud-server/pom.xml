@@ -4,7 +4,7 @@
 	<groupId>net.zxjava</groupId>
 	<artifactId>spring-cloud-server</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0-RELEASE</version>
 	<name>spring-cloud-server</name>
 	<url>http://maven.apache.org</url>
 	<parent>
