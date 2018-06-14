@@ -13,6 +13,7 @@ public class HelloController {
 
 	private final Logger logger = Logger.getLogger(getClass());
 
+	// 用于获取客户端信息
 	@Autowired
 	private DiscoveryClient client;
 
