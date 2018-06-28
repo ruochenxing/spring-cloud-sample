@@ -12,12 +12,12 @@ public class CustomerService {
 	@Autowired
 	private RestTemplate restTemplate;
 
-	@HystrixCommand(fallbackMethod = "error")
+	@HystrixCommand(fallbackMethod = "error") // fallbackMethod 服务降级
 	public String hello() {
 		return restTemplate.getForEntity("http://SPRINT-CLOUD-SERVICE/hello_3s", String.class).getBody();
 	}
 
-	public String error() {
+	public String error() { // add Throwable param to try exception
 		return "error";
 	}
 }

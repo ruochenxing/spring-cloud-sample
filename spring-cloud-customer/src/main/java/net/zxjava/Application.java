@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@EnableCircuitBreaker
+@EnableCircuitBreaker // 开启断路器功能
 // @SpringCloudApplication //这个注释等价于上面三个
 public class Application {
 
