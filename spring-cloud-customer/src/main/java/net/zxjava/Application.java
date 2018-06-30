@@ -8,10 +8,10 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+//遵守面向对象的开闭原则
 @EnableDiscoveryClient
 @SpringBootApplication
-@EnableFeignClients
-// @SpringCloudApplication //这个注释等价于上面三个
+@EnableFeignClients // 开启spring feign
 public class Application {
 
 	@Bean
