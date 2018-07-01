@@ -2,6 +2,9 @@ package net.zxjava.web;
 
 import java.util.Random;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -25,7 +28,13 @@ public class HelloController {
 
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
-	public String hello() {
+	public String hello(HttpServletRequest httpServletRequest) {
+		Cookie cookies[] = httpServletRequest.getCookies();
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				System.out.println(cookie.getName() + ":" + cookie.getValue());
+			}
+		}
 		ServiceInstance instance = client.getLocalServiceInstance();
 		logger.info("/hello,host:" + instance.getHost() + ",service_id:" + instance.getServiceId());
 		return "Hello World";

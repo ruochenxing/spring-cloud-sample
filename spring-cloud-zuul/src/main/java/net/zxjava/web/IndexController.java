@@ -11,4 +11,10 @@ public class IndexController {
 	public String index() {
 		return "success";
 	}
+	
+	
+	@RequestMapping(value = "/local/hello", method = RequestMethod.GET)
+	public String hello() {
+		return "/local/hello success";
+	}
 }
