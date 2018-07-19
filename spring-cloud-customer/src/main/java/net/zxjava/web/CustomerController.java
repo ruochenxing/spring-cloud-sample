@@ -14,6 +14,6 @@ public class CustomerController {
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
-		return restTemplate.getForEntity("http://SPRINT-CLOUD-SERVICE/hello", String.class).getBody();
+		return restTemplate.getForEntity("http://SPRING-CLOUD-SERVICE/hello", String.class).getBody();
 	}
 }
