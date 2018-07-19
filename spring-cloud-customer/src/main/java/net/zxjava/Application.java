@@ -9,10 +9,11 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient
 @SpringBootApplication
+// 两种服务调用方式，一种是ribbon+restTemplate，另一种是feign
 public class Application {
 
 	@Bean
-	@LoadBalanced
+	@LoadBalanced // 开启客户端负载均衡
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
