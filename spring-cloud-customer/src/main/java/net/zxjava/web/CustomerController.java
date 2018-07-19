@@ -18,11 +18,13 @@ public class CustomerController {
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
+		// 单实例
 		ServiceInstance serviceInstance = loadBalancerClient.choose("SPRING-CLOUD-SERVICE");
 		String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/hello";
 		System.out.println(url);
 		return restTemplate.getForEntity(url, String.class).getBody();
 		// @LoadBalanced 开启客户端负载均衡
-		// return restTemplate.getForEntity("http://SPRING-CLOUD-SERVICE/hello", String.class).getBody();
+		// return restTemplate.getForEntity("http://SPRING-CLOUD-SERVICE/hello",
+		// String.class).getBody();
 	}
 }
