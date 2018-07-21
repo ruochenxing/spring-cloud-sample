@@ -14,7 +14,7 @@ public class CustomerService {
 
 	@HystrixCommand(fallbackMethod = "error") // fallbackMethod 服务降级
 	public String hello() {
-		return restTemplate.getForEntity("http://SPRINT-CLOUD-SERVICE/hello_3s", String.class).getBody();
+		return restTemplate.getForEntity("http://SPRING-CLOUD-SERVICE/hello_3s", String.class).getBody();
 	}
 
 	public String error() { // add Throwable param to try exception
