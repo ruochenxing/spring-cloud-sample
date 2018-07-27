@@ -8,8 +8,8 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-// 两种服务调用方式，一种是ribbon+restTemplate，另一种是feign
-public class Application {
+// 两种服务调用方式，一种是ribbon+restTemplate（单实例只需要用restTemplate），另一种是feign
+public class CustomerApplication {
 
 	@Bean
 	// @LoadBalanced // 开启客户端负载均衡
@@ -18,6 +18,6 @@ public class Application {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(CustomerApplication.class, args);
 	}
 }

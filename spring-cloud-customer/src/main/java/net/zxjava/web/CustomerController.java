@@ -18,7 +18,7 @@ public class CustomerController {
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
-		// 单实例
+		// 单实例 平常开发并不会这样使用
 		ServiceInstance serviceInstance = loadBalancerClient.choose("SPRING-CLOUD-SERVICE");
 		String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/hello";
 		System.out.println(url);
