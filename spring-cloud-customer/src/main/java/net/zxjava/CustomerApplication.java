@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 @SpringBootApplication
 @EnableFeignClients // 开启spring feign
-public class Application {
+public class CustomerApplication {
 
 	@Bean
 	@LoadBalanced
@@ -21,6 +21,6 @@ public class Application {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(CustomerApplication.class, args);
 	}
 }
