@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class Application {
+public class CustomerApplication {
 
 	@Bean
 	@LoadBalanced // 开启客户端负载均衡
@@ -18,6 +18,6 @@ public class Application {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(CustomerApplication.class, args);
 	}
 }

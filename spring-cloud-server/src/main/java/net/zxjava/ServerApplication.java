@@ -7,10 +7,10 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 // java -jar target/spring-cloud-server-1.0-RELEASE.jar --spring.profiles.active=slave1
 @SpringBootApplication
 @EnableEurekaServer
-public class Application {
+public class ServerApplication {
 
 	public static void main(String[] args) {
-		new SpringApplicationBuilder(Application.class).web(true).run(args);
+		new SpringApplicationBuilder(ServerApplication.class).web(true).run(args);
 	}
 
 }
