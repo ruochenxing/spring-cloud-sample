@@ -17,4 +17,14 @@ public class CustomerController {
 	public String index() {
 		return customerService.hello();
 	}
+	
+	@RequestMapping(value = "/exception", method = RequestMethod.GET)
+	public String exception() {
+		return customerService.exception();
+	}
+	
+	@RequestMapping(value = "/exceptionByMyself", method = RequestMethod.GET)
+	public String exceptionByMyself() {
+		return customerService.exceptionByMyself();
+	}
 }

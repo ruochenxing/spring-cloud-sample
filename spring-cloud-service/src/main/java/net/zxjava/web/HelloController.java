@@ -40,4 +40,9 @@ public class HelloController {
 		logger.info("/hello,host:" + instance.getHost() + ",service_id:" + instance.getServiceId());
 		return "Hello World";
 	}
+
+	@RequestMapping(value = "/exception", method = RequestMethod.GET)
+	public String exception() throws Exception {
+		throw new Exception("ops");
+	}
 }
