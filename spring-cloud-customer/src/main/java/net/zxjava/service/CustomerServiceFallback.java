@@ -30,4 +30,9 @@ public class CustomerServiceFallback implements CustomerService {
 		return "error hello3s";
 	}
 
+	@Override
+	public String exception() {
+		return "ops";
+	}
+
 }
