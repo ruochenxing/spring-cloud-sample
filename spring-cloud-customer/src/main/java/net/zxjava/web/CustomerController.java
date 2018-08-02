@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class CustomerController {
 
 	@Autowired
-	private RestTemplate restTemplate;
+	private RestTemplate restTemplate;	//spring http client
 	@Autowired
 	private LoadBalancerClient loadBalancerClient;
 
