@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableFeignClients
 // @SpringCloudApplication //这个注释等价于上面三个
-public class Application {
+public class CustomerApplication {
 
 	@Bean
 	@LoadBalanced
@@ -21,6 +21,6 @@ public class Application {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(CustomerApplication.class, args);
 	}
 }

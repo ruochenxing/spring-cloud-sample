@@ -14,10 +14,10 @@ import net.zxjava.filter.ThrowExceptionFilter;
 
 @EnableZuulProxy
 @SpringCloudApplication
-public class Application {
+public class ZuulApplication {
 	public static void main(String[] args) {
 		FilterProcessor.setProcessor(new MyFilterProcessor());
-		new SpringApplicationBuilder(Application.class).web(true).run(args);
+		new SpringApplicationBuilder(ZuulApplication.class).web(true).run(args);
 	}
 
 	@Bean
