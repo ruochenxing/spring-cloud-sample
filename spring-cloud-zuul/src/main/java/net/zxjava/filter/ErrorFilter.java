@@ -2,31 +2,39 @@ package net.zxjava.filter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
 /**
- * 还有问题
+ * 统一异常处理
+ * 
+ * 请求生命周期的pre、route、post三个阶段中有异常抛出的时候都会进入error阶段的处理
  */
+@Component
 public class ErrorFilter extends ZuulFilter {
 
 	private static Logger log = LoggerFactory.getLogger(ErrorFilter.class);
 
 	@Override
 	public boolean shouldFilter() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public Object run() {
 		RequestContext ctx = RequestContext.getCurrentContext();
 		Throwable throwable = ctx.getThrowable();
-		ZuulFilter filter = (ZuulFilter) ctx.get("fail.filter"); // 来自 MyFilterProcessor
-		log.error("主动捕获异常 this is ErrorFilter: {} " + "from " + filter.filterType(), throwable.getCause().getMessage());
-		// ctx.set("error.status_code", HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-		// ctx.set("error.exception", throwable.getCause());
+		log.error("主动捕获异常 this is ErrorFilter: {} ", throwable.getCause().getMessage());
 		return null;
+		// ZuulFilter filter = (ZuulFilter) ctx.get("fail.filter"); // 来自
+		// MyFilterProcessor
+		// if (filter != null) {
+		// log.error("主动捕获异常 this is ErrorFilter: {} " + "from " + filter.filterType(),
+		// throwable.getCause().getMessage());
+		// } else {
+		// }
 	}
 
 	@Override

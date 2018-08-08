@@ -2,6 +2,7 @@ package net.zxjava.filter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
 import com.netflix.zuul.ZuulFilter;
@@ -22,13 +23,7 @@ public class ThrowExceptionFilter extends ZuulFilter {
 	@Override
 	public Object run() {
 		log.info("this is pre filter,it will throw a RuntimeException");
-		// RequestContext ctx = RequestContext.getCurrentContext();
-		// try {
 		doSomething();
-		// } catch (Exception e) {
-		// ctx.set("error.status_code", HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-		// ctx.set("error.exception", e);
-		// }
 		return null;
 	}
 
@@ -38,7 +33,7 @@ public class ThrowExceptionFilter extends ZuulFilter {
 
 	@Override
 	public String filterType() {
-		return "pre";
+		return FilterConstants.POST_TYPE;
 	}
 
 	@Override
