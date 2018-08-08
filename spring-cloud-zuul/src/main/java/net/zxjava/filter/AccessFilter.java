@@ -31,7 +31,7 @@ public class AccessFilter extends ZuulFilter {
 		Object accessToken = request.getParameter("accessToken");
 		if (accessToken == null) {
 			log.warn("access token is empty");
-			ctx.setSendZuulResponse(false);// 过滤该请求，不对其进行路由
+			ctx.setSendZuulResponse(false);// 让zuul过滤该请求，不对其进行路由
 			ctx.setResponseStatusCode(401);// 设置返回错误码
 			return null;
 		}
