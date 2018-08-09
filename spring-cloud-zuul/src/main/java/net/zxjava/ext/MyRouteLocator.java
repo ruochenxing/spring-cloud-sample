@@ -27,14 +27,15 @@ public class MyRouteLocator extends SimpleRouteLocator implements RefreshableRou
 		routesMap.putAll(super.locateRoutes());
 		// 从中加载路由信息
 		routesMap.putAll(locateRoutesFromOther());
-		// 优化一下配置
-		LinkedHashMap<String, ZuulRoute> values = new LinkedHashMap<>();
-		for (Map.Entry<String, ZuulRoute> entry : routesMap.entrySet()) {
-			String path = entry.getKey();
-			// optimized
-			values.put(path, entry.getValue());
-		}
-		return values;
+		return routesMap;
+		// // 优化一下配置
+		// LinkedHashMap<String, ZuulRoute> values = new LinkedHashMap<>();
+		// for (Map.Entry<String, ZuulRoute> entry : routesMap.entrySet()) {
+		// String path = entry.getKey();
+		// // optimized
+		// values.put(path, entry.getValue());
+		// }
+		// return values;
 	}
 
 	private Map<String, ZuulRoute> locateRoutesFromOther() {
