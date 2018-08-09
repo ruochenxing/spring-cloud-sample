@@ -35,7 +35,6 @@ public class MyRouteLocator extends SimpleRouteLocator implements RefreshableRou
 		LinkedHashMap<String, ZuulRoute> values = new LinkedHashMap<>();
 		for (Map.Entry<String, ZuulRoute> entry : routesMap.entrySet()) {
 			String path = entry.getKey();
-			// Prepend with slash if not already present.
 			if (!path.startsWith("/")) {
 				path = "/" + path;
 			}
