@@ -2,6 +2,7 @@ package net.zxjava.filter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
 import com.netflix.zuul.ZuulFilter;
@@ -39,7 +40,7 @@ public class ErrorFilter extends ZuulFilter {
 
 	@Override
 	public String filterType() {
-		return "error";
+		return FilterConstants.ERROR_TYPE;
 	}
 
 	@Override
