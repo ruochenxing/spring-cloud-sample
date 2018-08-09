@@ -7,16 +7,12 @@ import org.springframework.cloud.netflix.zuul.filters.RefreshableRouteLocator;
 import org.springframework.cloud.netflix.zuul.filters.SimpleRouteLocator;
 import org.springframework.cloud.netflix.zuul.filters.ZuulProperties;
 import org.springframework.cloud.netflix.zuul.filters.ZuulProperties.ZuulRoute;
-import org.springframework.util.StringUtils;
 
 //@Component
 public class MyRouteLocator extends SimpleRouteLocator implements RefreshableRouteLocator {
 
-	private ZuulProperties properties;
-
 	public MyRouteLocator(String servletPath, ZuulProperties properties) {
 		super(servletPath, properties);
-		this.properties = properties;
 	}
 
 	@Override
@@ -35,15 +31,7 @@ public class MyRouteLocator extends SimpleRouteLocator implements RefreshableRou
 		LinkedHashMap<String, ZuulRoute> values = new LinkedHashMap<>();
 		for (Map.Entry<String, ZuulRoute> entry : routesMap.entrySet()) {
 			String path = entry.getKey();
-			if (!path.startsWith("/")) {
-				path = "/" + path;
-			}
-			if (StringUtils.hasText(this.properties.getPrefix())) {
-				path = this.properties.getPrefix() + path;
-				if (!path.startsWith("/")) {
-					path = "/" + path;
-				}
-			}
+			// optimized
 			values.put(path, entry.getValue());
 		}
 		return values;
