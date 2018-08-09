@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient("SPRING-CLOUD-SERVICE")
-//@FeignClient(name = "SPRING-CLOUD-SERVICE", fallback = CustomerServiceFallback.class)
+@FeignClient(name = "SPRING-CLOUD-SERVICE", fallback = CustomerServiceFallback.class)
 public interface CustomerService {
 
 	@RequestMapping("/hello")
