@@ -12,9 +12,11 @@ import org.springframework.web.client.RestTemplate;
 public class CustomerController {
 
 	@Autowired
-	private RestTemplate restTemplate;	//spring http client
+	private RestTemplate restTemplate; // spring http client
 	@Autowired
 	private LoadBalancerClient loadBalancerClient;
+	// @Autowired
+	// private CustomerService customerService;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
@@ -26,5 +28,7 @@ public class CustomerController {
 		// @LoadBalanced 开启客户端负载均衡
 		// return restTemplate.getForEntity("http://SPRING-CLOUD-SERVICE/hello",
 		// String.class).getBody();
+
+		// return customerService.index();
 	}
 }
