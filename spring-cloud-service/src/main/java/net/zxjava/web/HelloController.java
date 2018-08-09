@@ -26,6 +26,7 @@ public class HelloController {
 		return "Hello World";
 	}
 
+	// 模拟超时
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/hello_3s", method = RequestMethod.GET)
 	public String hello_3s() {
@@ -41,6 +42,7 @@ public class HelloController {
 		return "Hello World";
 	}
 
+	// 模拟异常
 	@RequestMapping(value = "/exception", method = RequestMethod.GET)
 	public String exception() throws Exception {
 		throw new Exception("ops");
