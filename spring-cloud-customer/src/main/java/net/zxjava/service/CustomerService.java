@@ -3,7 +3,7 @@ package net.zxjava.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
 
-//@Service
+// @Service
 public class CustomerService {
 
 	@Autowired

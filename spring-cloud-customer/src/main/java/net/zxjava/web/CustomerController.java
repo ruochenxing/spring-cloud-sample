@@ -25,10 +25,11 @@ public class CustomerController {
 		String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/hello";
 		System.out.println(url);
 		return restTemplate.getForEntity(url, String.class).getBody();
-		// @LoadBalanced 开启客户端负载均衡
-		// return restTemplate.getForEntity("http://SPRING-CLOUD-SERVICE/hello",
-		// String.class).getBody();
-
-		// return customerService.index();
 	}
+
+	// @LoadBalanced 开启客户端负载均衡
+	// return restTemplate.getForEntity("http://SPRING-CLOUD-SERVICE/hello",
+	// String.class).getBody();
+
+	// return customerService.index();
 }
