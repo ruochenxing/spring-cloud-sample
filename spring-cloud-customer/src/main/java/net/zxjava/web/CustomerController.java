@@ -18,8 +18,8 @@ public class CustomerController {
 	}
 
 	@RequestMapping("/hello_3s")
-	public String hello3s() {
-		return customerService.hello3s();
+	public String hello_3s() {
+		return customerService.hello_3s();
 	}
 
 	@RequestMapping("/exception")

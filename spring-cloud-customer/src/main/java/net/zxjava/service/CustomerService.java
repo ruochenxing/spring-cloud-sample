@@ -14,7 +14,7 @@ public interface CustomerService {
 	public String hello();
 
 	@RequestMapping("/hello_3s")
-	public String hello3s();
+	public String hello_3s();
 
 	@RequestMapping("/exception")
 	public String exception();

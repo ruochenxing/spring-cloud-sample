@@ -26,8 +26,8 @@ public class CustomerServiceFallback implements CustomerService {
 	}
 
 	@Override
-	public String hello3s() {
-		return "error hello3s";
+	public String hello_3s() {
+		return "error hello_3s";
 	}
 
 	@Override
