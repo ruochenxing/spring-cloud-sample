@@ -29,13 +29,6 @@ public class ErrorFilter extends ZuulFilter {
 		Throwable throwable = ctx.getThrowable();
 		log.error("主动捕获异常 this is ErrorFilter: {} ", throwable.getCause().getMessage());
 		return null;
-		// ZuulFilter filter = (ZuulFilter) ctx.get("fail.filter"); // 来自
-		// MyFilterProcessor
-		// if (filter != null) {
-		// log.error("主动捕获异常 this is ErrorFilter: {} " + "from " + filter.filterType(),
-		// throwable.getCause().getMessage());
-		// } else {
-		// }
 	}
 
 	@Override

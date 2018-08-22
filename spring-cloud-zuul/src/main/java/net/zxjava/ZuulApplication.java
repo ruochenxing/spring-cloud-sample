@@ -10,9 +10,4 @@ public class ZuulApplication {
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(ZuulApplication.class).web(true).run(args);
 	}
-
-//	@Bean
-//	public PatternServiceRouteMapper serviceRouteMapper() {
-//		return new PatternServiceRouteMapper("(?<name>^.+)-(?<version>v.+$)", "${version}/${name}");
-//	}
 }
