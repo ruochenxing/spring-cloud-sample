@@ -13,9 +13,9 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/index_3s", method = RequestMethod.GET)
 	public String index() {
-		return customerService.hello();
+		return customerService.hello_3s();
 	}
 	
 	@RequestMapping(value = "/exception", method = RequestMethod.GET)
